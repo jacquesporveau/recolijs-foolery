@@ -1,10 +1,16 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
+import { RecoilRoot } from 'recoil';
 
 import { Counter } from './Counter';
 
 describe('Counter', () => {
-  const renderComponent = () => render(<Counter />);
+  const renderComponent = () =>
+    render(
+      <RecoilRoot>
+        <Counter />
+      </RecoilRoot>
+    );
 
   it('increments', () => {
     const { getByText } = renderComponent();

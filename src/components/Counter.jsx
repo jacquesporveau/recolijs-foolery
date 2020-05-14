@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { atom, useRecoilState } from 'recoil';
+
+export const countStateKey = 'countState';
+export const countState = atom({
+  key: countStateKey,
+  default: 0
+})
 
 export const Counter = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useRecoilState(countState);
 
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count - 1);
