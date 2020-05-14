@@ -1,6 +1,8 @@
 import React from 'react';
 import { atom, useRecoilState } from 'recoil';
 
+import { CounterButtons } from './CounterButtons';
+
 export const countStateKey = 'countState';
 export const countState = atom({
   key: countStateKey,
@@ -8,16 +10,12 @@ export const countState = atom({
 })
 
 export const Counter = () => {
-  const [count, setCount] = useRecoilState(countState);
-
-  const increment = () => setCount(count + 1);
-  const decrement = () => setCount(count - 1);
+  const [count] = useRecoilState(countState);
 
   return (
     <>
       <span>{count}</span>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      <CounterButtons />
     </>
   );
 };
