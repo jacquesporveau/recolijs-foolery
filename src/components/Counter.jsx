@@ -1,13 +1,8 @@
 import React from 'react';
-import { atom, useRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 import { CounterButtons } from './CounterButtons';
-
-export const countStateKey = 'countState';
-export const countState = atom({
-  key: countStateKey,
-  default: 0
-})
+import { countState } from './counterState';
 
 export const Counter = () => {
   const [count] = useRecoilState(countState);
